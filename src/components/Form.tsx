@@ -20,7 +20,7 @@ function Form() {
               <Select options={years} optionName="Year" />
             </div>
           </div>
-          <Input label="CVV" className="text-right" />
+          <Input label="CVV" className="text-right mt-2" />
         </div>
         <div className="mx-auto w-full bg-white shadow-md rounded-lg md:mt-2">
           <Button />
