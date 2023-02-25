@@ -19,7 +19,8 @@ export default function Input({
         <input
           type="text"
           placeholder=""
-          className={`w-full rounded-lg focus:ring-1 focus:ring-offset-2 focus:ring-primary focus:outline-none border border-gray-500 p-2 ${className}`}
+          className={`w-full  focus:outline-none rounded-sm  py-1 px-4
+          border border-gray-500 p-3 md:p-3 ${className}`}
         />
       </label>
     </div>

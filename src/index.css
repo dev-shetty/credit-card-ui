@@ -9,7 +9,7 @@ body,
 }
 
 .card {
-  background: linear-gradient(navy 50%, white 50%);
+  /*background: linear-gradient(navy 50%, white 50%);*/
 }
 
 .credit-card {
@@ -32,5 +32,9 @@ body,
   /* @apply border border-red-500; */
   /* Use outline as it doesn't take space border can cause unneccesary havoc */
   outline: 1px solid red;
+}
+
+input:focus {
+   box-shadow: 0px 10px 10px -10px #20387559;
 }
 
