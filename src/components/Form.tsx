@@ -1,6 +1,6 @@
-import Button from "./Button"
-import Input from "./Input"
-import Select from "./Select"
+import Button from "./Form/Button"
+import Input from "./Form/Input"
+import Select from "./Form/Select"
 
 function Form() {
   const months = Array.from({ length: 12 }, (_, i) => i + 1)
