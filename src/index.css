@@ -24,6 +24,7 @@ body,
   inset: 0;
   border-radius: inherit;
   background-color: navy;
+  z-index: -10;
   opacity: 0.3;
 }
 
