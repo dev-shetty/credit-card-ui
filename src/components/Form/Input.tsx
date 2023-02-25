@@ -11,14 +11,16 @@ export default function Input({
   className,
 }: InputProps) {
   return (
-    <div>
+    <div className="flex flex-col">
       <label htmlFor={label}
-       className=" text-gray-500 text-sm
+        className=" text-gray-500 text-sm
       ">
         {label}
-      <input type="text" placeholder='' className={`w-full h-10 rounded-lg  focus:ring-1 focus:ring-offset-2
-       focus:ring-primary focus:outline-none mt-3 border border-gray-500  p-2 ${className}
-        `} />
+        <input
+          type="text"
+          placeholder=""
+          className={`w-full rounded-lg focus:ring-1 focus:ring-offset-2 focus:ring-primary focus:outline-none border border-gray-500 p-2 ${className}`}
+        />
       </label>
     </div>
   )
