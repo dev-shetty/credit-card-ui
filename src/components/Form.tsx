@@ -34,7 +34,7 @@ function Form() {
         <div>
           <Input
             label="CVV"
-            className="md:w-2/4 ml-4 mt-7"
+            className="md:w-2/4 ml-4 mt-7 text-right p-4"
           />
         </div>
       </div>
