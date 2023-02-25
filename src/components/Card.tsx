@@ -23,8 +23,7 @@ function Card({ cardNumber, name, expires }: Props) {
   }
 
   function toggleSide() {
-    if (side === 1) setSide(2)
-    else setSide(1)
+    setSide(side === 1 ? 2 : 1)
   }
 
   // Deveesh Part
