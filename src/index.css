@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.debug{
-    @apply border border-red-500;
+html,
+body,
+#root {
+  @apply h-full;
+}
+
+.debug {
+  /* @apply border border-red-500; */
+  /* Use outline as it doesn't take space border can cause unneccesary havoc */
+  outline: 1px solid red;
 }

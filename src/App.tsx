@@ -1,9 +1,11 @@
-import React from 'react'
+import HomePage from "./pages/HomePage"
 
-export default function App() {
+function App() {
   return (
-   <>
-    <h1>Hello world</h1>
-   </>
+    <div className="h-full">
+      <HomePage />
+    </div>
   )
 }
+
+export default App
