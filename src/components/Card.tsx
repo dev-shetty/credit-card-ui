@@ -27,8 +27,6 @@ function Card({ cardNumber, name, expires }: Props) {
     else setSide(1)
   }
 
-  console.log(side)
-
   // Deveesh Part
   return (
     <div className="card rounded-t-2xl flex items-center justify-center">

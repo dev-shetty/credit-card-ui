@@ -33,7 +33,7 @@ body,
   /* Use outline as it doesn't take space border can cause unneccesary havoc */
   outline: 1px solid red;
 }
-
-
-
-
+/* 
+* {
+  outline: 1px solid red;
+} */
