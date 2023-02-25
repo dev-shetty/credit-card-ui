@@ -1,8 +1,15 @@
-interface Props {
-  cardNumber: string
+type Expires = {
+  month: number
+  year: number
 }
 
-function Card({ cardNumber }: Props) {
+interface Props {
+  cardNumber: string
+  name?: string
+  expires?: Expires
+}
+
+function Card({ cardNumber, name, expires }: Props) {
   let censoredCard: string[] = []
   const cardStart = cardNumber.slice(0, 4)
   const cardEnd = cardNumber.slice(12)
@@ -28,10 +35,24 @@ function Card({ cardNumber }: Props) {
           />
         </div>
         <div className="absolute w-full text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className="flex justify-center text-white text-3xl font-semibold tracking-wider drop-shadow-lg">
-            {censoredCard.map((cardNumber) => (
-              <p>&nbsp; {cardNumber} &nbsp;</p>
+          <div className="flex justify-center items-center text-white sm:text-3xl font-semibold tracking-wider drop-shadow-lg">
+            {censoredCard.map((cardNumber, index) => (
+              <p key={index}>&nbsp;{cardNumber}&nbsp;</p>
             ))}
+          </div>
+        </div>
+        <div className="absolute text-white px-[5%] bottom-0 w-full h-[30%] flex items-center justify-between text-xs sm:text-base">
+          <div>
+            <p>Card Holder</p>
+            <p className="uppercase font-bold sm:text-xl">
+              {name ? name : "Full Name"}
+            </p>
+          </div>
+          <div>
+            <p>Expires</p>
+            <p className="uppercase font-bold sm:text-xl">
+              {expires ? expires.month / expires.year : "MM/YY"}
+            </p>
           </div>
         </div>
       </div>
