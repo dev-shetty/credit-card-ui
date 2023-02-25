@@ -8,6 +8,26 @@ body,
   @apply h-full;
 }
 
+.card {
+  background: linear-gradient(navy 50%, white 50%);
+}
+
+.credit-card {
+  position: relative;
+  background-image: url("/card-design3.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.credit-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: navy;
+  z-index: -10;
+  opacity: 0.3;
+}
+
 .debug {
   /* @apply border border-red-500; */
   /* Use outline as it doesn't take space border can cause unneccesary havoc */
