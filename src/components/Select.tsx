@@ -18,7 +18,8 @@ export default function Select({
           " id="cardMonth" 
             title='Month'
               data-ref="cardDate">
-              <option value="" disabled selected>{optionName}</option>
+              <option defaultValue="" disabled selected
+              >{optionName}</option>
               {options.map((option, index) => (
                   <option key={index} value={option}>{option}</option>
               ))}
