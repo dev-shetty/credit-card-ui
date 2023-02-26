@@ -1,5 +1,4 @@
 import { Expires } from "../../lib/types"
-import CardWrapper from "./CardWrapper"
 
 interface Props {
   censoredCardNumber: string[]

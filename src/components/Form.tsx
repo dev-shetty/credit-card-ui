@@ -6,8 +6,7 @@ function Form() {
   const months = Array.from({ length: 12 }, (_, i) => i + 1)
   const years = Array.from({ length: 12 }, (_, i) => i + 2021)
   return (
-    <div className="shadow-2xl rounded-xl px-10 bg-white w-full md:pt-44 md:pb-[50px] pt-[40px] pb-[20px]
-    ">
+    <div className="shadow-2xl rounded-xl px-10 bg-white w-full ">
       <div className="flex flex-col gap-2 md:gap-4">
         <Input label="Card Name" />
         <Input label="Card Holders" />

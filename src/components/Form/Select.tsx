@@ -7,8 +7,7 @@ export default function Select({ options, optionName }: SelectProps) {
   return (
     <div className="grow">
       <select
-        className="w-full rounded-sm   focus:outline-none  
-        border border-gray-500 p-3 bg-white"
+        className="w-full rounded-sm focus:outline-none text-xs md:text-base border border-gray-500 px-1 py-3 md:p-3 bg-white"
         id="cardMonth"
         title="Month"
         data-ref="cardDate"

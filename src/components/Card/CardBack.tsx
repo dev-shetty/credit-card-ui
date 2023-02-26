@@ -1,5 +1,3 @@
-import CardWrapper from "./CardWrapper"
-
 interface Props {
   onClick: () => void
   cvv: number
@@ -7,7 +5,10 @@ interface Props {
 
 function CardBack({ onClick, cvv }: Props) {
   return (
-    <div onClick={onClick} className="card__face card__face__back h-full cursor-pointer">
+    <div
+      onClick={onClick}
+      className="card__face card__face__back h-full cursor-pointer"
+    >
       <img
         src="/visa.png"
         alt="Visa"
