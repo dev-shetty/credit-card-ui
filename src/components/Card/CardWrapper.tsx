@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { ChildrenProps } from "../../lib/types"
 
 function CardWrapper({ children }: ChildrenProps) {

@@ -17,7 +17,16 @@ body,
   background-image: url("/card-design3.jpg");
   background-position: center;
   background-size: cover;
+  perspective: 500px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  transform-origin: center;
 }
+
+.credit-card:hover {
+  transform: rotateY(-180deg);
+}
+
 .credit-card::after {
   content: "";
   position: absolute;
@@ -26,6 +35,15 @@ body,
   background-color: navy;
   z-index: -10;
   opacity: 0.3;
+}
+.card__face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+.card__face__back {
+  transform: rotateY(180deg);
 }
 
 .debug {

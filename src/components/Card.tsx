@@ -2,6 +2,7 @@ import CardFront from "./Card/CardFront"
 import { Expires, Sides } from "../lib/types"
 import CardBack from "./Card/CardBack"
 import { useState } from "react"
+import CardWrapper from "./Card/CardWrapper"
 
 interface Props {
   cardNumber: string
@@ -30,16 +31,17 @@ function Card({ cardNumber, name, expires }: Props) {
   // Deveesh Part
   return (
     <div className="card rounded-t-2xl flex items-center justify-center">
-      {side === 1 ? (
-        <CardFront
-          onClick={toggleSide}
-          censoredCardNumber={censoredCardNumber}
-          name={name}
-          expires={expires}
-        />
-      ) : (
-        <CardBack onClick={toggleSide} cvv={123} />
-      )}
+      <CardWrapper>
+        <>
+          <CardFront
+            onClick={toggleSide}
+            censoredCardNumber={censoredCardNumber}
+            name={name}
+            expires={expires}
+          />
+          <CardBack onClick={toggleSide} cvv={123} />
+        </>
+      </CardWrapper>
     </div>
   )
 }
