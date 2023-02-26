@@ -8,8 +8,8 @@ function Form() {
   return (
     <div className="shadow-2xl rounded-xl px-10 bg-white w-full ">
       <div className="flex flex-col gap-2 md:gap-4">
-        <Input label="Card Name" />
-        <Input label="Card Holders" />
+        <Input label="Card Number" />
+        <Input label="Card Holder" />
         <div className="grid grid-cols-[70%_30%]  ">
           <div className="flex flex-col gap-1">
             <label htmlFor="cardName" className=" text-gray-500 text-sm">
