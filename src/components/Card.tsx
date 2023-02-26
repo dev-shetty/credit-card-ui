@@ -38,7 +38,7 @@ function Card({ cardNumber, name, expires }: Props) {
           expires={expires}
         />
       ) : (
-        <CardBack onClick={toggleSide} />
+        <CardBack onClick={toggleSide} cvv={123} />
       )}
     </div>
   )

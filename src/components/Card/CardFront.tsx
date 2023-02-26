@@ -11,7 +11,7 @@ interface Props {
 function CardFront({ censoredCardNumber, name, expires, onClick }: Props) {
   return (
     <CardWrapper>
-      <div onClick={onClick} className="h-full select-none cursor-pointer">
+      <div onClick={onClick} className="h-full cursor-pointer">
         <div>
           <img
             src="/visa.png"
