@@ -1,12 +1,13 @@
-import Button from "./Button"
-import Input from "./Input"
-import Select from "./Select"
+import Button from "./Form/Button"
+import Input from "./Form/Input"
+import Select from "./Form/Select"
 
 function Form() {
   const months = Array.from({ length: 12 }, (_, i) => i + 1)
   const years = Array.from({ length: 12 }, (_, i) => i + 2021)
   return (
-    <div className="  shadow-2xl rounded-xl px-[10%] bg-white w-full">
+    <div className="shadow-2xl rounded-xl px-10 bg-white w-full md:pt-44 md:pb-[50px] pt-[40px] pb-[20px]
+    ">
       <div className="flex flex-col gap-2 md:gap-4">
         <Input label="Card Name" />
         <Input label="Card Holders" />
@@ -20,7 +21,7 @@ function Form() {
               <Select options={years} optionName="Year" />
             </div>
           </div>
-          <Input label="CVV" className="text-right" />
+          <Input label="CVV" className="text-right mt-1" />
         </div>
         <div className="mx-auto w-full bg-white shadow-md rounded-lg md:mt-2">
           <Button />
