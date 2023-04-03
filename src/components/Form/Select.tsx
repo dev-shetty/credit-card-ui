@@ -16,7 +16,7 @@ export default function Select({ options, optionName }: SelectProps) {
           {optionName}
         </option>
         {options.map((option, index) => (
-          <option key={index} value={option}>
+          <option key={index} defaultValue={option}>
             {option}
           </option>
         ))}
