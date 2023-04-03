@@ -1,14 +1,22 @@
-import { ChangeEvent, useContext } from "react"
+import { ChangeEvent, useContext, useRef, useState } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
 import Input from "./Form/Input"
 import Select from "./Form/Select"
 
+type Date = {
+  date: string
+}
+
 function Form() {
   const months = Array.from({ length: 12 }, (_, i) => i + 1)
   const years = Array.from({ length: 12 }, (_, i) => i + 2021)
 
-  const { setCardNumber, setCardHolder } = useContext(CardDetailsContext)
+  const monthRef = useRef<Date>({ date: "" })
+  const yearRef = useRef<Date>({ date: "" })
+
+  const { setCardNumber, setCardHolder, setCardExpireDate } =
+    useContext(CardDetailsContext)
 
   function onCardNumberChange(e: ChangeEvent<HTMLInputElement>) {
     setCardNumber!(e.target.value)
@@ -16,6 +24,16 @@ function Form() {
 
   function onCardHolderChange(e: ChangeEvent<HTMLInputElement>) {
     setCardHolder!(e.target.value)
+  }
+
+  function onDateChange(e: ChangeEvent<HTMLSelectElement>) {
+    if (e.target.name === "month") {
+      monthRef.current.date = e.target.value.padStart(2, "0")
+    } else if (e.target.name === "year") {
+      yearRef.current.date = e.target.value.slice(2)
+    }
+
+    setCardExpireDate!(`${monthRef.current.date}/${yearRef.current.date}`)
   }
 
   return (
@@ -49,8 +67,18 @@ function Form() {
               Expiration Date
             </label>
             <div className="flex w-full gap-4 pr-4">
-              <Select options={months} optionName="Month" />
-              <Select options={years} optionName="Year" />
+              <Select
+                options={months}
+                optionName="month"
+                onChange={onDateChange}
+                ref={monthRef}
+              />
+              <Select
+                options={years}
+                optionName="year"
+                onChange={onDateChange}
+                ref={yearRef}
+              />
             </div>
           </div>
           <Input label="CVV" className="text-right mt-1" />

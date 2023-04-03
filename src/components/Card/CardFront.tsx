@@ -10,7 +10,7 @@ interface Props {
 }
 
 function CardFront({ censoredCardNumber, name, expires, onClick }: Props) {
-  const { cardHolder } = useContext(CardDetailsContext)
+  const { cardHolder, cardExpireDate } = useContext(CardDetailsContext)
   return (
     <div
       onClick={onClick}
@@ -45,7 +45,7 @@ function CardFront({ censoredCardNumber, name, expires, onClick }: Props) {
         <div>
           <p>Expires</p>
           <p className="uppercase font-bold sm:text-xl">
-            {expires ? expires.month / expires.year : "MM/YY"}
+            {cardExpireDate || "MM/YY"}
           </p>
         </div>
       </div>
