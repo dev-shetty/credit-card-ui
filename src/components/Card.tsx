@@ -15,15 +15,12 @@ function Card({ cardNumber, name, expires }: Props) {
   const [side, setSide] = useState<Sides>(1)
 
   let censoredCardNumber: string[] = []
-  if (cardNumber.length === 0)
-    censoredCardNumber = ["XXXX", "XXXX", "XXXX", "XXXX"]
-  else
-    censoredCardNumber = [
-      cardNumber.slice(0, 4),
-      cardNumber.slice(4, 8).replace(/[0-9]/g, "#"),
-      cardNumber.slice(8, 12).replace(/[0-9]/g, "#"),
-      cardNumber.slice(12),
-    ]
+  censoredCardNumber = [
+    cardNumber.slice(0, 4).padEnd(4, "X"),
+    cardNumber.slice(4, 8).padEnd(4, "X"),
+    cardNumber.slice(8, 12).padEnd(4, "X"),
+    cardNumber.slice(12).padEnd(4, "X"),
+  ]
 
   function toggleSide() {
     setSide(side === 1 ? 2 : 1)

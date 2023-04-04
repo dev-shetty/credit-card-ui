@@ -33,7 +33,9 @@ function Form() {
       yearRef.current.date = e.target.value.slice(2)
     }
 
-    setCardExpireDate!(`${monthRef.current.date}/${yearRef.current.date}`)
+    setCardExpireDate!(
+      `${monthRef.current.date || "MM"}/${yearRef.current.date || "YY"}`
+    )
   }
 
   return (
