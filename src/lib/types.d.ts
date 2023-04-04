@@ -1,8 +1,3 @@
-export enum Sides {
-  front = 1,
-  back = 2,
-}
-
 export interface ChildrenProps {
   children: JSX.Element
 }

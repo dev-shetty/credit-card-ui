@@ -1,4 +1,4 @@
-import { ChangeEvent, MutableRefObject, RefObject } from "react"
+import { ChangeEvent, RefObject } from "react"
 
 type Date = {
   date: string
@@ -23,11 +23,12 @@ export default function Select({
         className="w-full rounded-sm focus:outline-none text-xs md:text-base border border-gray-500 px-1 py-3 md:p-3 bg-white"
         id="cardMonth"
         title="Month"
+        required
         name={optionName}
         ref={ref as RefObject<HTMLSelectElement>}
         onChange={onChange}
       >
-        <option defaultValue="" disabled selected>
+        <option defaultValue={optionName} disabled selected>
           {/* IDK why but I liked this way XD */}
           {optionName.replace(optionName[0], optionName[0].toUpperCase())}
         </option>
