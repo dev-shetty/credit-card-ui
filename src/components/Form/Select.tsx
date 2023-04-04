@@ -23,6 +23,7 @@ export default function Select({
         className="w-full rounded-sm focus:outline-none text-xs md:text-base border border-gray-500 px-1 py-3 md:p-3 bg-white"
         id="cardMonth"
         title="Month"
+        required
         name={optionName}
         ref={ref as RefObject<HTMLSelectElement>}
         onChange={onChange}

@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { ChangeEvent, useContext, useEffect, useRef } from "react"
+import { ChangeEvent, FormEvent, useContext, useRef } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
 import Select from "./Form/Select"
@@ -15,8 +15,16 @@ function Form() {
   const monthRef = useRef<Date>({ date: "" })
   const yearRef = useRef<Date>({ date: "" })
 
-  const { setCardNumber, setCardHolder, setCardExpireDate, setCVV, CVV } =
-    useContext(CardDetailsContext)
+  const {
+    setCardNumber,
+    setCardHolder,
+    setCardExpireDate,
+    setCVV,
+    cardNumber,
+    cardHolder,
+    cardExpireDate,
+    CVV,
+  } = useContext(CardDetailsContext)
 
   function onCardNumberChange(e: ChangeEvent<HTMLInputElement>) {
     setCardNumber!(e.target.value)
@@ -42,6 +50,18 @@ function Form() {
     )
   }
 
+  function onCardSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (cardNumber?.length! !== 16) {
+      alert("Card number should be 16 digits")
+      return
+    }
+    if (!monthRef.current.date || !yearRef.current.date) {
+      alert("Enter the expire month and year")
+      return
+    }
+  }
+
   function flipCard() {
     gsap.to(".credit-card", {
       rotateY: "-180deg",
@@ -57,15 +77,19 @@ function Form() {
   }
 
   return (
-    <div className="shadow-2xl rounded-xl px-10 bg-white w-full ">
+    <form
+      className="shadow-2xl rounded-xl px-10 bg-white w-full"
+      onSubmit={onCardSubmit}
+    >
       <div className="flex flex-col gap-2 md:gap-4">
         <div className="flex flex-col">
           <label htmlFor="card-number" className="text-gray-500 text-sm">
             Card Number
             <input
               type="number"
-              data-no-buttons
               name="card-number"
+              required
+              data-no-buttons
               onChange={onCardNumberChange}
               className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
             />
@@ -77,6 +101,7 @@ function Form() {
             <input
               type="text"
               name="card-holder"
+              required
               onChange={onCardHolderChange}
               className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
             />
@@ -109,6 +134,7 @@ function Form() {
                 <input
                   type="number"
                   name="cvv"
+                  required
                   data-no-buttons
                   onChange={onCVVChange}
                   onFocus={flipCard}
@@ -124,7 +150,7 @@ function Form() {
           <Button />
         </div>
       </div>
-    </div>
+    </form>
   )
 }
 
