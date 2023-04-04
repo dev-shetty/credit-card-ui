@@ -1,21 +1,14 @@
 import { useContext } from "react"
 import { CardDetailsContext } from "../../context/CardDetailsProvider"
-import { Expires } from "../../lib/types"
 
 interface Props {
   censoredCardNumber: string[]
-  name?: string
-  expires?: Expires
-  onClick: () => void
 }
 
-function CardFront({ censoredCardNumber, name, expires, onClick }: Props) {
+function CardFront({ censoredCardNumber }: Props) {
   const { cardHolder, cardExpireDate } = useContext(CardDetailsContext)
   return (
-    <div
-      onClick={onClick}
-      className="card__face card__face__front h-full cursor-pointer"
-    >
+    <div className="card__face card__face__front h-full cursor-pointer">
       <div>
         <img
           src="/visa.png"

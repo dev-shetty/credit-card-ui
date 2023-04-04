@@ -1,7 +1,6 @@
-import { ChangeEvent, RefObject, useContext, useEffect, useRef } from "react"
+import { ChangeEvent, useContext, useRef } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
-import Input from "./Form/Input"
 import Select from "./Form/Select"
 
 type Date = {
@@ -98,7 +97,7 @@ function Form() {
                   className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
                 />
               </label>
-            </div>{" "}
+            </div>
           </div>
         </div>
         <div className="mx-auto w-full bg-white shadow-md rounded-lg md:mt-2">
