@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useRef, useState } from "react"
+import { ChangeEvent, RefObject, useContext, useEffect, useRef } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
 import Input from "./Form/Input"
@@ -15,7 +15,7 @@ function Form() {
   const monthRef = useRef<Date>({ date: "" })
   const yearRef = useRef<Date>({ date: "" })
 
-  const { setCardNumber, setCardHolder, setCardExpireDate } =
+  const { setCardNumber, setCardHolder, setCardExpireDate, setCVV } =
     useContext(CardDetailsContext)
 
   function onCardNumberChange(e: ChangeEvent<HTMLInputElement>) {
@@ -24,6 +24,10 @@ function Form() {
 
   function onCardHolderChange(e: ChangeEvent<HTMLInputElement>) {
     setCardHolder!(e.target.value)
+  }
+
+  function onCVVChange(e: ChangeEvent<HTMLInputElement>) {
+    setCVV!(e.target.value)
   }
 
   function onDateChange(e: ChangeEvent<HTMLSelectElement>) {
@@ -65,7 +69,7 @@ function Form() {
         </div>
         <div className="grid grid-cols-[70%_30%]  ">
           <div className="flex flex-col gap-1">
-            <label htmlFor="cardName" className=" text-gray-500  text-sm">
+            <label htmlFor="cardName" className="text-gray-500 text-sm">
               Expiration Date
             </label>
             <div className="flex w-full gap-4 pr-4">
@@ -83,7 +87,19 @@ function Form() {
               />
             </div>
           </div>
-          <Input label="CVV" className="text-right mt-1" />
+          <div>
+            <div>
+              <label htmlFor="cvv" className="text-gray-500 text-sm">
+                CVV
+                <input
+                  type="text"
+                  name="cvv"
+                  onChange={onCVVChange}
+                  className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
+                />
+              </label>
+            </div>{" "}
+          </div>
         </div>
         <div className="mx-auto w-full bg-white shadow-md rounded-lg md:mt-2">
           <Button />

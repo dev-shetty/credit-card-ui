@@ -27,7 +27,7 @@ export default function Select({
         ref={ref as RefObject<HTMLSelectElement>}
         onChange={onChange}
       >
-        <option defaultValue="" disabled selected>
+        <option defaultValue={optionName} disabled selected>
           {/* IDK why but I liked this way XD */}
           {optionName.replace(optionName[0], optionName[0].toUpperCase())}
         </option>
