@@ -60,6 +60,16 @@ function Form() {
       alert("Enter the expire month and year")
       return
     }
+    if (CVV?.length !== 3) {
+      alert("CVV should be 3 digits")
+      return
+    }
+
+    alert(`
+    Card Number: ${cardNumber}
+    Card Holder: ${cardHolder}
+    Expire Date: ${cardExpireDate}
+    CVV: ${CVV}`)
   }
 
   function flipCard() {
