@@ -1,4 +1,5 @@
-import { ChangeEvent, useContext, useRef } from "react"
+import gsap from "gsap"
+import { ChangeEvent, useContext, useEffect, useRef } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
 import Select from "./Form/Select"
@@ -14,7 +15,7 @@ function Form() {
   const monthRef = useRef<Date>({ date: "" })
   const yearRef = useRef<Date>({ date: "" })
 
-  const { setCardNumber, setCardHolder, setCardExpireDate, setCVV } =
+  const { setCardNumber, setCardHolder, setCardExpireDate, setCVV, CVV } =
     useContext(CardDetailsContext)
 
   function onCardNumberChange(e: ChangeEvent<HTMLInputElement>) {
@@ -41,6 +42,20 @@ function Form() {
     )
   }
 
+  function flipCard() {
+    gsap.to(".credit-card", {
+      rotateY: "-180deg",
+      duration: 0.2,
+    })
+  }
+
+  function unFlipCard() {
+    gsap.to(".credit-card", {
+      rotateY: "0",
+      duration: 0.2,
+    })
+  }
+
   return (
     <div className="shadow-2xl rounded-xl px-10 bg-white w-full ">
       <div className="flex flex-col gap-2 md:gap-4">
@@ -49,6 +64,7 @@ function Form() {
             Card Number
             <input
               type="number"
+              data-no-buttons
               name="card-number"
               onChange={onCardNumberChange}
               className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
@@ -91,9 +107,13 @@ function Form() {
               <label htmlFor="cvv" className="text-gray-500 text-sm">
                 CVV
                 <input
-                  type="text"
+                  type="number"
                   name="cvv"
+                  data-no-buttons
                   onChange={onCVVChange}
+                  onFocus={flipCard}
+                  onMouseEnter={flipCard}
+                  onMouseLeave={unFlipCard}
                   className="w-full focus:outline-none rounded-sm border border-gray-500 p-3"
                 />
               </label>

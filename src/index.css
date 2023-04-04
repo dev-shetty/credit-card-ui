@@ -23,9 +23,9 @@ body,
   transform-origin: center;
 }
 
-.credit-card:hover {
+/* .credit-card:hover {
   transform: rotateY(-180deg);
-}
+} */
 
 .credit-card::after {
   content: "";
@@ -44,6 +44,12 @@ body,
 }
 .card__face__back {
   transform: rotateY(180deg);
+}
+
+input[data-no-buttons]::-webkit-inner-spin-button,
+input[data-no-buttons]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .debug {
