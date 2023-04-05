@@ -26,7 +26,7 @@ function CardDetailsProvider({ children }: PropsWithChildren) {
   const [cardHolder, setCardHolder] = useState("")
   const [cardExpireDate, setCardExpireDate] = useState("")
   const [CVV, setCVV] = useState("")
-  const [isCardSubmitted, setIsCardSubmitted] = useState(true)
+  const [isCardSubmitted, setIsCardSubmitted] = useState(false)
 
   return (
     <CardDetailsContext.Provider
