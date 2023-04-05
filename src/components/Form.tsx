@@ -23,8 +23,6 @@ function Form() {
     setCardExpireDate,
     setCVV,
     cardNumber,
-    cardHolder,
-    cardExpireDate,
     CVV,
     setIsCardSubmitted,
   } = useContext(CardDetailsContext)
@@ -68,6 +66,7 @@ function Form() {
       return
     }
 
+    unFlipCard()
     // Just to make it little realistic
     setLoading(true)
 

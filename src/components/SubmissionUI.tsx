@@ -2,7 +2,22 @@ import { useContext } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 
 function SubmissionUI() {
-  const { setIsCardSubmitted } = useContext(CardDetailsContext)
+  const {
+    setIsCardSubmitted,
+    setCardNumber,
+    setCardHolder,
+    setCardExpireDate,
+    setCVV,
+  } = useContext(CardDetailsContext)
+
+  function goBack() {
+    setIsCardSubmitted!(false)
+    setCardNumber!("")
+    setCardHolder!("")
+    setCardExpireDate!("")
+    setCVV!("")
+  }
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="flex flex-col justify-center text-xl">
@@ -15,7 +30,7 @@ function SubmissionUI() {
           Your Card has been saved
         </p>
         <button
-          onClick={() => setIsCardSubmitted!(false)}
+          onClick={goBack}
           className="mt-2 bg-indigo-400 py-1 rounded-lg hover:bg-indigo-500"
         >
           Go back
