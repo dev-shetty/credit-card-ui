@@ -15,6 +15,8 @@ interface CardDetails {
   setCardExpireDate: Dispatch<SetStateAction<string>>
   CVV: string
   setCVV: Dispatch<SetStateAction<string>>
+  isCardSubmitted: boolean
+  setIsCardSubmitted: Dispatch<SetStateAction<boolean>>
 }
 
 export const CardDetailsContext = createContext<Partial<CardDetails>>({})
@@ -24,6 +26,7 @@ function CardDetailsProvider({ children }: PropsWithChildren) {
   const [cardHolder, setCardHolder] = useState("")
   const [cardExpireDate, setCardExpireDate] = useState("")
   const [CVV, setCVV] = useState("")
+  const [isCardSubmitted, setIsCardSubmitted] = useState(false)
 
   return (
     <CardDetailsContext.Provider
@@ -36,6 +39,8 @@ function CardDetailsProvider({ children }: PropsWithChildren) {
         setCardExpireDate,
         CVV,
         setCVV,
+        isCardSubmitted,
+        setIsCardSubmitted,
       }}
     >
       {children}

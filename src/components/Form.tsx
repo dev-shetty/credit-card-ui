@@ -1,5 +1,5 @@
 import gsap from "gsap"
-import { ChangeEvent, FormEvent, useContext, useRef } from "react"
+import { ChangeEvent, FormEvent, useContext, useRef, useState } from "react"
 import { CardDetailsContext } from "../context/CardDetailsProvider"
 import Button from "./Form/Button"
 import Select from "./Form/Select"
@@ -9,6 +9,8 @@ type Date = {
 }
 
 function Form() {
+  const [loading, setLoading] = useState(false)
+
   const months = Array.from({ length: 12 }, (_, i) => i + 1)
   const years = Array.from({ length: 12 }, (_, i) => i + 2021)
 
@@ -21,9 +23,8 @@ function Form() {
     setCardExpireDate,
     setCVV,
     cardNumber,
-    cardHolder,
-    cardExpireDate,
     CVV,
+    setIsCardSubmitted,
   } = useContext(CardDetailsContext)
 
   function onCardNumberChange(e: ChangeEvent<HTMLInputElement>) {
@@ -65,11 +66,14 @@ function Form() {
       return
     }
 
-    alert(`
-    Card Number: ${cardNumber}
-    Card Holder: ${cardHolder}
-    Expire Date: ${cardExpireDate}
-    CVV: ${CVV}`)
+    unFlipCard()
+    // Just to make it little realistic
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+      setIsCardSubmitted!(true)
+    }, 1000)
   }
 
   function flipCard() {
@@ -88,7 +92,7 @@ function Form() {
 
   return (
     <form
-      className="shadow-2xl rounded-xl px-10 bg-white w-full"
+      className="shadow-2xl rounded-b-xl px-10 bg-white w-full"
       onSubmit={onCardSubmit}
     >
       <div className="flex flex-col gap-2 md:gap-4">
@@ -157,7 +161,7 @@ function Form() {
           </div>
         </div>
         <div className="mx-auto w-full bg-white shadow-md rounded-lg md:mt-2">
-          <Button />
+          <Button text={loading ? "Saving..." : "Save Card"} />
         </div>
       </div>
     </form>

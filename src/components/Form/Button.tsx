@@ -1,8 +1,9 @@
 interface Props {
   onClick?: () => void
+  text: string
 }
 
-export default function Button({ onClick }: Props) {
+export default function Button({ onClick, text }: Props) {
   return (
     <button
       type="submit"
@@ -10,7 +11,7 @@ export default function Button({ onClick }: Props) {
       title="Submit"
       onClick={onClick}
     >
-      Submit
+      {text}
     </button>
   )
 }
